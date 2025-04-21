@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
+ * This class implements a REPL statement consisting of a list of token 
+ * descriptors.
+ * 
+ * @version 1.0.1
+ * @since 1.0.0
  */
 public final class ReplStatement {
     
@@ -60,6 +64,7 @@ public final class ReplStatement {
         return sb.append("]").toString();
     }
     
+    @Override
     public boolean equals(final Object o) {
         if (o == this) {
             return true;

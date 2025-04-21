@@ -1,6 +1,8 @@
 package com.github.coderodde.repllib.demo;
 
 import com.github.coderodde.repllib.ReplAction;
+import static com.github.coderodde.repllib.ReplAction.toDouble;
+import static com.github.coderodde.repllib.ReplAction.toInt;
 import com.github.coderodde.repllib.ReplInteger;
 import com.github.coderodde.repllib.ReplKeyword;
 import com.github.coderodde.repllib.ReplParser;
@@ -21,6 +23,7 @@ public class CorrelationCoefficientDemoApp {
         
         while (true) {
             try {
+                System.out.print(">>> ");
                 final String commandLine = scanner.nextLine();
                 parser.parse(commandLine);
             } catch (final Exception ex) {
@@ -126,8 +129,8 @@ public class CorrelationCoefficientDemoApp {
         final ReplAction addDataPointAction = new ReplAction() {
             @Override
             public void act(List<Object> actionParameterList) {
-                final double x = (double) actionParameterList.get(0);
-                final double y = (double) actionParameterList.get(1);
+                final double x = toDouble(actionParameterList.get(0));
+                final double y = toDouble(actionParameterList.get(1));
                 CorrelationCoefficientDemoApp.this.addDataPoint(x, y);
             }
         };
@@ -212,7 +215,7 @@ public class CorrelationCoefficientDemoApp {
                     
             @Override
             public void act(List<Object> actionParameterList) {
-                int index = ((Long) actionParameterList.get(0)).intValue();
+                final int index = toInt(actionParameterList.get(0));
                 System.out.println(dataPointList.get(index).toString());
             }
         });
@@ -229,8 +232,8 @@ public class CorrelationCoefficientDemoApp {
                     
             @Override
             public void act(List<Object> actionParameterList) {
-                int index0 = ((Long) actionParameterList.get(0)).intValue();
-                int index1 = ((Long) actionParameterList.get(1)).intValue();
+                final int index0 = toInt(actionParameterList.get(0));
+                final int index1 = toInt(actionParameterList.get(1));
                 final List<DataPoint> view = dataPointList.subList(index0, 
                                                                    index1);
                 

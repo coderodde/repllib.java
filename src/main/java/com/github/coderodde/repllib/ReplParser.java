@@ -5,12 +5,22 @@ import java.util.List;
 import java.util.Objects;
 
 /**
+ * This class implements the REPL (read, evaluate, process, loop) parser..
  * 
+ * @version 1.0.1
+ * @since 1.0.0
  */
 public final class ReplParser {
     
     private final List<ReplStatement> statementList = new ArrayList<>();
     
+    /**
+     * Adds a statement to this parser.
+     * 
+     * @param statement the statement to add.
+     * @throws ReplDuplicateStatementException if this parser already contains
+     *                                         an equivalent statement.
+     */
     public void addStatement(final ReplStatement statement) {
         Objects.requireNonNull(statement, "Input statement is null");
         

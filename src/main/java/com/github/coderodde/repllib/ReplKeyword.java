@@ -3,7 +3,10 @@ package com.github.coderodde.repllib;
 import java.util.Objects;
 
 /**
- *
+ * This class marks a keyword token with fixed string name.
+ * 
+ * @version 1.0.1
+ * @since 1.0.0
  */
 public final class ReplKeyword implements ReplTokenDescriptor {
     
